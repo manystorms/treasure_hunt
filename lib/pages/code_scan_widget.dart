@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:treasure_hunt/flutter_flow/nav/nav.dart';
 
-class QRScannerPage extends StatefulWidget {
+class CodeScanPageWidget extends StatefulWidget {
+  const CodeScanPageWidget({super.key});
+
   @override
-  _QRScannerPageState createState() => _QRScannerPageState();
+  _CodeScanPageWidgetState createState() => _CodeScanPageWidgetState();
 }
 
-class _QRScannerPageState extends State<QRScannerPage> {
+class _CodeScanPageWidgetState extends State<CodeScanPageWidget> {
   late MobileScannerController controller;
 
   @override
@@ -50,7 +53,7 @@ class _QRScannerPageState extends State<QRScannerPage> {
           } else {
             final String code = barcode.rawValue!;
             debugPrint('QR Code Scanned: $code');
-            Navigator.pop(context, code);
+            context.pop();
           }
         },
       ),

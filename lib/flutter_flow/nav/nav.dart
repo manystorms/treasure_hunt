@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:treasure_hunt/pages/code_scan_widget.dart';
 
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -50,7 +51,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'name_page',
           path: '/namePage',
           builder: (context, params) => const NamePageWidget(),
-        )
+        ),
+        FFRoute(
+            name: 'code_scan_page',
+            path: '/codeScan',
+            builder: (context, params) => const CodeScanPageWidget())
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 
