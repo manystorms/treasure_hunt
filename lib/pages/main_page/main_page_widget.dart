@@ -309,8 +309,9 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            context.push('/codeScan');
+                          onPressed: () async {
+                            final result = await context.push<String>('/codeScan');
+                            print('aaa: $result');
                           },
                           text: 'QR 코드 스캔',
                           options: FFButtonOptions(

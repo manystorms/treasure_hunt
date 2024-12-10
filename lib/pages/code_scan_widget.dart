@@ -53,7 +53,7 @@ class _CodeScanPageWidgetState extends State<CodeScanPageWidget> {
           } else {
             final String code = barcode.rawValue!;
             debugPrint('QR Code Scanned: $code');
-            context.pop();
+            context.pop(code);
           }
         },
       ),

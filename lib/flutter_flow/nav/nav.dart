@@ -40,7 +40,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'main_page',
           path: '/mainPage',
-          builder: (context, params) => const MainPageWidget(),
+          builder: (context, _) => const MainPageWidget(),
         ),
         FFRoute(
           name: 'image_page',
