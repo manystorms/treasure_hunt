@@ -7,7 +7,10 @@ import 'image_page_model.dart';
 export 'image_page_model.dart';
 
 class ImagePageWidget extends StatefulWidget {
-  const ImagePageWidget({super.key});
+  final int indexNum;
+
+  @immutable
+  const ImagePageWidget({required this.indexNum});
 
   @override
   State<ImagePageWidget> createState() => _ImagePageWidgetState();
@@ -49,7 +52,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '#번째 단서',
+                '${widget.indexNum}번째 단서',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       letterSpacing: 0.0,
@@ -79,7 +82,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                   size: 24.0,
                 ),
                 onPressed: () {
-                  print('IconButton pressed ...');
+                  context.pop();
                 },
               ),
             ),

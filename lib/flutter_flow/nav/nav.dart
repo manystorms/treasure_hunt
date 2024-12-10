@@ -44,8 +44,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         ),
         FFRoute(
           name: 'image_page',
-          path: '/imagePage',
-          builder: (context, params) => const ImagePageWidget(),
+          path: '/imagePage/:indexNum',
+          builder: (context, params) {
+            final indexNum = params.getParam<int>('indexNum', ParamType.int) ?? 0;
+            return ImagePageWidget(indexNum: indexNum);
+          },
         ),
         FFRoute(
           name: 'name_page',

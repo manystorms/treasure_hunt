@@ -181,7 +181,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                             for(int i = 0; i < 10; i++)
                               InkWell(
                                 onTap: () {
-                                  print(i);
+                                  context.push('/imagePage/$i');
                                 },
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
@@ -222,7 +222,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                 CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    '단서 1',
+                                                    '단서 $i',
                                                     style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
@@ -237,7 +237,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                         .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                     child: Text(
-                                                      '단서 1',
+                                                      '단서 $i',
                                                       style: FlutterFlowTheme.of(
                                                           context)
                                                           .labelMedium
