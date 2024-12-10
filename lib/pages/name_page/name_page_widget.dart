@@ -53,7 +53,7 @@ class _NamePageWidgetState extends State<NamePageWidget> {
             size: 30.0,
           ),
           onPressed: () {
-            print('IconButton pressed ...');
+            context.pop();
           },
         ),
         actions: const [],
@@ -78,23 +78,6 @@ class _NamePageWidgetState extends State<NamePageWidget> {
                 phone: false,
                 tablet: false,
               ))
-                Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 8.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.fromSTEB(
-                            0.0, 12.0, 0.0, 12.0),
-                        child: Icon(
-                          Icons.arrow_back_rounded,
-                          color: FlutterFlowTheme.of(context).primaryText,
-                          size: 24.0,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: SizedBox(
@@ -105,13 +88,13 @@ class _NamePageWidgetState extends State<NamePageWidget> {
                     autofillHints: const [AutofillHints.email],
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelText: 'Your name...',
+                      labelText: '이름 또는 팀명',
                       labelStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Outfit',
                                 letterSpacing: 0.0,
                               ),
-                      hintText: 'Enter your email...',
+                      hintText: '이름 또는 팀명을 입력하세요',
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Outfit',
@@ -170,7 +153,7 @@ class _NamePageWidgetState extends State<NamePageWidget> {
                       const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () {
-                      print('Button-Login pressed ...');
+                      context.pop(_model.emailAddressTextController.text);
                     },
                     text: '입력 완료',
                     options: FFButtonOptions(

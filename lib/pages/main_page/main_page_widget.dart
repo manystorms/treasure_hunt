@@ -279,8 +279,9 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 12.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ..');
+                          onPressed: () async {
+                            _model.userName = await context.push<String>('/namePage');
+                            print('bbb: ${_model.userName}');
                           },
                           text: '당신이 속한 팀명 혹은 이름을 입력하세요.',
                           options: FFButtonOptions(
