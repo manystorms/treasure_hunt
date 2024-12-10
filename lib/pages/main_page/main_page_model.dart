@@ -6,7 +6,9 @@ class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   String? userName;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    print('aa');
+  }
 
   @override
   void dispose() {}

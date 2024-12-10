@@ -178,99 +178,85 @@ class _MainPageWidgetState extends State<MainPageWidget>
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           children: [
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 12.0),
-                              child: Container(
-                                width: double.infinity,
-                                constraints: const BoxConstraints(
-                                  maxWidth: 570.0,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
-                                  ),
-                                ),
+                            for(int i = 0; i < 10; i++)
+                              InkWell(
+                                onTap: () {
+                                  print(i);
+                                },
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 12.0, 16.0, 12.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
+                                      24.0, 12.0, 12.0, 12.0),
+                                  child: Container(
+                                    width: double.infinity,
+                                    constraints: const BoxConstraints(
+                                      maxWidth: 570.0,
+                                    ),
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      border: Border.all(
+                                        color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 12.0, 16.0, 12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding:
                                               const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 12.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
                                                 MainAxisAlignment.center,
-                                            crossAxisAlignment:
+                                                crossAxisAlignment:
                                                 CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                '단서 1',
-                                                style:
+                                                children: [
+                                                  Text(
+                                                    '단서 1',
+                                                    style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
+                                                      fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                      letterSpacing: 0.0,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsetsDirectional
+                                                        .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '단서 1',
-                                                  style: FlutterFlowTheme.of(
+                                                    child: Text(
+                                                      '단서 1',
+                                                      style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelMedium
-                                                      .override(
+                                                          .labelMedium
+                                                          .override(
                                                         fontFamily: 'Outfit',
                                                         letterSpacing: 0.0,
                                                       ),
-                                                ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ],
+                                            ),
                                           ),
-                                        ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 12.0),
-                              child: Container(
-                                width: double.infinity,
-                                constraints: const BoxConstraints(
-                                  maxWidth: 570.0,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).alternate,
-                                    width: 2.0,
-                                  ),
-                                ),
-                              ),
-                            ),
+                              )
                           ],
                         ).animateOnPageLoad(
                             animationsMap['listViewOnPageLoadAnimation']!),
