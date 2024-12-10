@@ -30,6 +30,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
     print(riddleData.content);
     print(riddleData.simpleContent);
     print(riddleData.imageUrl);
+    _model.getDataDone = true;
     setState(() {});
   }
 
@@ -173,7 +174,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 4.0, 0.0, 12.0),
                         child: Text(
-                          '단서',
+                          (_model.getDataDone)? '단서': '로딩중',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -191,7 +192,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           children: [
-                            for(int i = 0; i < 10; i++)
+                            for(int i = 0; _model.getDataDone && i < riddleData.riddleNum; i++)
                               InkWell(
                                 onTap: () {
                                   context.push('/imagePage/$i');
@@ -235,7 +236,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                 CrossAxisAlignment.start,
                                                 children: [
                                                   Text(
-                                                    '단서 $i',
+                                                    '단서 ${i+1}',
                                                     style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyLarge
@@ -250,7 +251,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                         .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                     child: Text(
-                                                      '단서 $i',
+                                                      (riddleData.simpleContent[i]??''),
                                                       style: FlutterFlowTheme.of(
                                                           context)
                                                           .labelMedium
