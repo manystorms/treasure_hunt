@@ -7,6 +7,8 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'main_page_model.dart';
 export 'main_page_model.dart';
 
+import 'package:treasure_hunt/data.dart';
+
 class MainPageWidget extends StatefulWidget {
   const MainPageWidget({super.key});
 
@@ -22,8 +24,19 @@ class _MainPageWidgetState extends State<MainPageWidget>
 
   final animationsMap = <String, AnimationInfo>{};
 
+  void getData() async{
+    riddleData = await RiddleData.getData();
+    print(riddleData.riddleNum);
+    print(riddleData.content);
+    print(riddleData.simpleContent);
+    print(riddleData.imageUrl);
+    setState(() {});
+  }
+
   @override
   void initState() {
+    getData();
+
     super.initState();
     _model = createModel(context, () => MainPageModel());
 

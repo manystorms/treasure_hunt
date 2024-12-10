@@ -28,18 +28,12 @@ class _CodeScanPageWidgetState extends State<CodeScanPageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Scan QR Code'),
+        title: const Text('QR 코드 스캔'),
         actions: [
           IconButton(
-            icon: Icon(Icons.flash_on),
+            icon: const Icon(Icons.flash_on),
             onPressed: () {
               controller.toggleTorch();
-            },
-          ),
-          IconButton(
-            icon: Icon(Icons.flip_camera_ios),
-            onPressed: () {
-              controller.switchCamera();
             },
           ),
         ],
