@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'image_page_model.dart';
 export 'image_page_model.dart';
+import 'package:treasure_hunt/data.dart';
 
 class ImagePageWidget extends StatefulWidget {
   final int indexNum;
@@ -52,7 +53,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '${widget.indexNum}번째 단서',
+                '${widget.indexNum+1}번째 단서',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Outfit',
                       letterSpacing: 0.0,
@@ -152,7 +153,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
                                               child: Image.network(
-                                                'https://images.unsplash.com/photo-1491553895911-0055eca6402d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw0fHxzaG9lfGVufDB8fHx8MTcwODQ0NTc3OHww&ixlib=rb-4.0.3&q=80&w=1080',
+                                                riddleData.imageUrl[widget.indexNum]??'',
                                                 width: 300.0,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -164,7 +165,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                     ),
                                   ),
                                   Text(
-                                    '단서 내용',
+                                    riddleData.content[widget.indexNum]??'',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
                                         .override(
