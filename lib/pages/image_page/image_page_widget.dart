@@ -164,7 +164,8 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                       ].divide(const SizedBox(height: 12.0)),
                                     ),
                                   ),
-                                  Text(
+                                  if(riddleData.content[widget.indexNum] != null)
+                                    Text(
                                     riddleData.content[widget.indexNum]??'',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge
@@ -173,7 +174,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
                                         ),
-                                  ),
+                                    ),
                                   Container(
                                     constraints: const BoxConstraints(
                                       maxWidth: 570.0,
