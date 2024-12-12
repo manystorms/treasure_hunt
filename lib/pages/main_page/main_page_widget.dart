@@ -25,13 +25,22 @@ class _MainPageWidgetState extends State<MainPageWidget>
   final animationsMap = <String, AnimationInfo>{};
 
   void getData() async{
-    riddleData = await RiddleData.getData();
-    print(riddleData.riddleNum);
-    print(riddleData.content);
-    print(riddleData.simpleContent);
-    print(riddleData.imageUrl);
-    _model.getDataDone = true;
-    setState(() {});
+    try{
+      riddleData = await RiddleData.getData();
+      print(riddleData.riddleNum);
+      print(riddleData.content);
+      print(riddleData.simpleContent);
+      print(riddleData.imageUrl);
+      _model.getDataDone = true;
+      setState(() {});
+    }catch(e) {
+      final snackBar = SnackBar(
+        content: Text(e.toString()),
+        duration: const Duration(seconds: 5), // 표시 시간
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 
   @override
@@ -160,7 +169,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 4.0, 24.0, 12.0),
                         child: Text(
-                          '동신과학고에 합격하신 12기 여려분 모두 환영합니다. 지금부터 학교 내에 숨겨져 있는 QR 코드를 찾아 아래의 보라색 버튼을 눌러 스캔하여 단서를 밝혀 저희를 찾아오셔야 합니다!  반드시 모든 단서를 활성화시키고 찾아와주세요',
+                          '동신과학고에 합격하신 12기 여려분 모두 환영합니다. 지금부터 학교 내에 숨겨져 있는 QR 코드를 찾아 아래의 보라색 버튼을 눌러 스캔하여 단서를 밝혀 저희를 찾아오셔야 합니다! \n반드시 모든 단서를 활성화시키고 찾아와주세요!',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(

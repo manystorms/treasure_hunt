@@ -18,26 +18,43 @@ class RiddleData {
   });
 
   static Future<RiddleData> getData() async {
-    final documentSnapshot = await firestore.collection('treasure').doc('riddle').get();
+    try{
+      final documentSnapshot = await FirebaseFirestore.instance
+          .collection('treasure')
+          .doc('riddle')
+          .get()
+          .timeout(
+        const Duration(seconds: 10), // 10초 제한
+        onTimeout: () {
+          throw Exception('데이터 가져오기가 10초를 초과했습니다.');
+        },
+      );
 
-    if (documentSnapshot.exists) {
-      Map<String, dynamic>? data = documentSnapshot.data();
+      if (documentSnapshot.exists) {
+        Map<String, dynamic>? data = documentSnapshot.data();
 
-      if (data != null) {
-        final int riddleNum = data['riddleNum'] ?? 0;
-        final List<Map<String, dynamic>> riddleList = List<Map<String, dynamic>>.from(data['riddleList'] ?? []);
-        final List<String?> content = riddleList.map((item) => item['content'] as String?).toList();
-        final List<String?> simpleContent = riddleList.map((item) => item['simpleContent'] as String?).toList();
-        final List<String?> imageUrl = riddleList.map((item) => item['imageUrl'] as String?).toList();
+        if (data != null) {
+          final int riddleNum = data['riddleNum'] ?? 0;
+          final List<Map<String, dynamic>> riddleList = List<
+              Map<String, dynamic>>.from(data['riddleList'] ?? []);
+          final List<String?> content = riddleList.map((
+              item) => item['content'] as String?).toList();
+          final List<String?> simpleContent = riddleList.map((
+              item) => item['simpleContent'] as String?).toList();
+          final List<String?> imageUrl = riddleList.map((
+              item) => item['imageUrl'] as String?).toList();
 
-        return RiddleData(
-          riddleNum: riddleNum,
-          content: content,
-          simpleContent: simpleContent,
-          imageUrl: imageUrl,
-        );
+          return RiddleData(
+            riddleNum: riddleNum,
+            content: content,
+            simpleContent: simpleContent,
+            imageUrl: imageUrl,
+          );
+        }
       }
+    } catch (e) {
+      throw Exception('에러 발생: ${e.toString()}');
     }
-    throw Exception('Error: 데이터를 불러올 수 없습니다.');
+    throw Exception('에러 발생: 데이터가 손상되었습니다.');
   }
 }
