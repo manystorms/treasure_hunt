@@ -11,6 +11,10 @@ class ImagePageModel extends FlutterFlowModel<ImagePageWidget> {
   TextEditingController? productNameTextController;
   String? Function(BuildContext, String?)? productNameTextControllerValidator;
 
+  Future<void> sendAnswer(BuildContext context) async{
+    await Future.delayed(const Duration(milliseconds: 300));
+  }
+
   @override
   void initState(BuildContext context) {}
 

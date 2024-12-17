@@ -24,29 +24,8 @@ class _MainPageWidgetState extends State<MainPageWidget>
 
   final animationsMap = <String, AnimationInfo>{};
 
-  void getData() async{
-    try{
-      riddleData = await RiddleData.getData();
-      print(riddleData.riddleNum);
-      print(riddleData.content);
-      print(riddleData.simpleContent);
-      print(riddleData.imageUrl);
-      _model.getDataDone = true;
-      setState(() {});
-    }catch(e) {
-      final snackBar = SnackBar(
-        content: Text(e.toString()),
-        duration: const Duration(seconds: 5), // 표시 시간
-      );
-
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
-  }
-
   @override
   void initState() {
-    getData();
-
     super.initState();
     _model = createModel(context, () => MainPageModel());
 
@@ -183,7 +162,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 4.0, 0.0, 12.0),
                         child: Text(
-                          (_model.getDataDone)? '단서': '로딩중',
+                          '단서',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -201,14 +180,14 @@ class _MainPageWidgetState extends State<MainPageWidget>
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           children: [
-                            for(int i = 0; _model.getDataDone && i < riddleData.riddleNum; i++)
+                            for(int i = 0; i < riddleData.length; i++)
                               InkWell(
                                 onTap: () {
                                   context.push('/imagePage/$i');
                                 },
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      24.0, 12.0, 12.0, 12.0),
+                                      24.0, 6.0, 12.0, 6.0),
                                   child: Container(
                                     width: double.infinity,
                                     constraints: const BoxConstraints(
@@ -260,7 +239,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                                         .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                     child: Text(
-                                                      (riddleData.simpleContent[i]??''),
+                                                      (riddleData[i]['simpleContent']??''),
                                                       style: FlutterFlowTheme.of(
                                                           context)
                                                           .labelMedium

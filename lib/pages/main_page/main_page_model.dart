@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class MainPageModel extends FlutterFlowModel<MainPageWidget> {
   String? userName;
-  bool getDataDone = false;
 
   @override
   void initState(BuildContext context) {}
