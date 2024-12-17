@@ -46,14 +46,14 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -67,7 +67,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                     child: Text(
                       'Fill out the form below to submit a ticket.',
                       style: FlutterFlowTheme.of(context).labelLarge.override(
@@ -77,9 +77,9 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(24, 24, 24, 0),
                       child: CircularPercentIndicator(
                         percent: 0.82,
                         radius: 150,
@@ -102,11 +102,11 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 12, 0, 0),
                     child: Container(
                       width: 400,
                       height: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Color(0xFF5E50CE),
                         borderRadius: BorderRadius.only(
                           bottomLeft: Radius.circular(20),
@@ -123,7 +123,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 24, 6, 6),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 6, 6),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
@@ -132,10 +132,10 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50,
-                              padding: EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
                               iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: Color(0xFF5B50B8),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: const Color(0xFF5B50B8),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -145,7 +145,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 letterSpacing: 0.0,
                               ),
                               elevation: 4,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -156,7 +156,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(6, 24, 0, 6),
+                          padding: const EdgeInsetsDirectional.fromSTEB(6, 24, 0, 6),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
@@ -165,10 +165,10 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50,
-                              padding: EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
                               iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: Color(0xFF2F258D),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: const Color(0xFF2F258D),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -178,7 +178,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 letterSpacing: 0.0,
                               ),
                               elevation: 4,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -194,7 +194,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 6, 6, 6),
+                          padding: const EdgeInsetsDirectional.fromSTEB(0, 6, 6, 6),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
@@ -203,10 +203,10 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50,
-                              padding: EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
                               iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: Color(0xFF5B50B8),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: const Color(0xFF5B50B8),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -216,7 +216,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 letterSpacing: 0.0,
                               ),
                               elevation: 4,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),
@@ -227,7 +227,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(6, 6, 0, 6),
+                          padding: const EdgeInsetsDirectional.fromSTEB(6, 6, 0, 6),
                           child: FFButtonWidget(
                             onPressed: () {
                               print('Button pressed ...');
@@ -236,10 +236,10 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 50,
-                              padding: EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
                               iconPadding:
-                              EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: Color(0xFF2F258D),
+                              const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                              color: const Color(0xFF2F258D),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -249,7 +249,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 letterSpacing: 0.0,
                               ),
                               elevation: 4,
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
                               ),

@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:treasure_hunt/show_alert.dart';
+import 'package:treasure_hunt/data.dart';
 
 import 'mini_game_button_click_model.dart';
 export 'mini_game_button_click_model.dart';
@@ -42,6 +43,17 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
 
   void gameEnd() async{
     await showAlertWithoutChoice(context, '게임이 끝났습니다');
+    int changingScore = 0;
+    if(_model.cnt >= 50) {
+      changingScore = 5;
+    }else if(_model.cnt >= 30) {
+      changingScore = 1;
+    }else{
+      changingScore = -3;
+    }
+    changeScore(changingScore);
+    await showAlertWithoutChoice(context, '점수가 ${changingScore.abs()}만큼 ${(changingScore > 0)? '증가':'감소'}했습니다');
+
     context.pop();
   }
 
@@ -72,30 +84,30 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
         appBar: AppBar(
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
+            padding: const EdgeInsetsDirectional.fromSTEB(16, 12, 16, 0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Create Bug Report',
+                    '버튼 클릭 게임',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                       fontFamily: 'Inter Tight',
                       letterSpacing: 0.0,
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
                     child: Text(
-                      'Fill out the form below to submit a ticket.',
+                      '주어진 시간 안에 버튼을 최대한 많이 누르세요',
                       style: FlutterFlowTheme.of(context).labelLarge.override(
                         fontFamily: 'Inter',
                         letterSpacing: 0.0,
@@ -103,9 +115,9 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
                     ),
                   ),
                   Align(
-                    alignment: AlignmentDirectional(0, 0),
+                    alignment: const AlignmentDirectional(0, 0),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(24, 24, 24, 0),
                       child: CircularPercentIndicator(
                         percent: (_model.timeLeft>= 0)? _model.timeLeft/settingTime:0,
                         radius: 150,
@@ -128,7 +140,7 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 12),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 0, 12),
                     child: FFButtonWidget(
                       onPressed: () {
                         setState(() {
@@ -139,8 +151,8 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
                       options: FFButtonOptions(
                         width: double.infinity,
                         height: 100,
-                        padding: EdgeInsets.all(0),
-                        iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                        padding: const EdgeInsets.all(0),
+                        iconPadding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
                         color: FlutterFlowTheme.of(context).primary,
                         textStyle:
                         FlutterFlowTheme.of(context).titleSmall.override(
@@ -150,7 +162,7 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
                           letterSpacing: 0.0,
                         ),
                         elevation: 4,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1,
                         ),

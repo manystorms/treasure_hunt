@@ -6,16 +6,16 @@ class NamePageModel extends FlutterFlowModel<NamePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode;
-  TextEditingController? emailAddressTextController;
-  String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
+  FocusNode? playerNameFocusNode;
+  TextEditingController? playerNameTextController;
+  String? Function(BuildContext, String?)? playerNameTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    emailAddressFocusNode?.dispose();
-    emailAddressTextController?.dispose();
+    playerNameFocusNode?.dispose();
+    playerNameTextController?.dispose();
   }
 }

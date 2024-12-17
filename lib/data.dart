@@ -1,6 +1,16 @@
 
+
+String? playerName;
 int currentProgress = 0;
-int score = 0;
+int score = 5;
+
+void changeCurrentProgress(int num) {
+  currentProgress += num;
+}
+
+void changeScore(int num) {
+  score += num;
+}
 
 List<Map<String, dynamic>> riddleData = [
   {
@@ -13,7 +23,8 @@ List<Map<String, dynamic>> riddleData = [
   {
     'qrCode':'bbbb',
     'simpleContent':'gdsk',
-    'content':'dsg'
+    'content':'dsg',
+    'miniGame':'/miniGameMatchColor'
   },
   {
     'qrCode':'cccc',

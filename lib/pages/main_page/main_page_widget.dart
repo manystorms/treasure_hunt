@@ -149,7 +149,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 4.0, 24.0, 12.0),
                         child: Text(
-                          '동신과학고에 합격하신 12기 여려분 모두 환영합니다. 지금부터 학교 내에 숨겨져 있는 QR 코드를 찾아 아래의 보라색 버튼을 눌러 스캔하여 단서를 밝혀 저희를 찾아오셔야 합니다! \n반드시 모든 단서를 활성화시키고 찾아와주세요!',
+                          '동신과학고에 합격하신 ${playerName??'12기'} 여려분 모두 환영합니다. 지금부터 학교 내에 숨겨져 있는 QR 코드를 찾아 아래의 보라색 버튼을 눌러 스캔하여 단서를 밝혀 저희를 찾아오셔야 합니다! \n반드시 모든 단서를 활성화시키고 찾아와주세요!',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
@@ -163,7 +163,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 4.0, 0.0, 12.0),
                         child: Text(
-                          (currentProgress > 0)? '단서':'단서-단서를 아직 발견하지 못했습니다',
+                          (currentProgress > 0)? '단서-점수 $score점':'단서-단서를 아직 발견하지 못했습니다',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -305,7 +305,12 @@ class _MainPageWidgetState extends State<MainPageWidget>
                             16.0, 0.0, 16.0, 12.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            _model.userName = await context.push<String>('/namePage');
+                            if(currentProgress == 0) {
+                              await context.push<String>('/namePage');
+                              setState(() {});
+                            }else{
+                              showAlertWithoutChoice(context, '이제 이름을 바꿀 수 없습니다');
+                            }
                           },
                           text: '당신이 속한 팀명 혹은 이름을 입력하세요.',
                           options: FFButtonOptions(
@@ -335,31 +340,35 @@ class _MainPageWidgetState extends State<MainPageWidget>
                             16.0, 0.0, 16.0, 12.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            final result = await context.push<String>('/codeScan');
-                            if (result.toString() == riddleData[currentProgress]['qrCode']) {
-                              currentProgress++;
-                              if (currentProgress == riddleData.length) {
-                                if (context.mounted) {
-                                  await showAlertWithoutChoice(context, '최종 보물에 도달하였습니다!\n상품을 받아가세요!');
-                                }
-                                setState(() {});
-                              } else {
-                                if(riddleData[currentProgress-1]['miniGame'] != null && context.mounted) {
-                                  await context.push(riddleData[currentProgress-1]['miniGame']);
-                                }
+                            if(playerName == null) {
+                              await showAlertWithoutChoice(context, '팀명 혹은 이름을 입력하세요');
+                            }else{
+                              final result = await context.push<String>('/codeScan');
+                              if (result.toString() == riddleData[currentProgress]['qrCode']) {
+                                currentProgress++;
+                                if (currentProgress == riddleData.length) {
+                                  if (context.mounted) {
+                                    await showAlertWithoutChoice(context, '최종 보물에 도달하였습니다!\n상품을 받아가세요!');
+                                  }
+                                  setState(() {});
+                                } else {
+                                  if(riddleData[currentProgress-1]['miniGame'] != null && context.mounted) {
+                                    await context.push(riddleData[currentProgress-1]['miniGame']);
+                                  }
 
-                                if (context.mounted) {
-                                  await showAlertWithoutChoice(context, '축하합니다!\n$currentProgress번째 단서를 찾아냈습니다!');
+                                  if (context.mounted) {
+                                    await showAlertWithoutChoice(context, '축하합니다!\n$currentProgress번째 단서를 찾아냈습니다!');
+                                  }
+                                  setState(() {});
                                 }
-                                setState(() {});
+                              } else {
+                                if (context.mounted) {
+                                  await showAlertWithoutChoice(context, '틀렸습니다');
+                                }
                               }
-                            } else {
-                              if (context.mounted) {
-                                await showAlertWithoutChoice(context, '틀렸습니다');
-                              }
+                              debugPrint(currentProgress.toString());
+                              debugPrint(result.toString());
                             }
-                            debugPrint(currentProgress.toString());
-                            debugPrint(result.toString());
                           },
                           text: 'QR 코드 스캔',
                           options: FFButtonOptions(

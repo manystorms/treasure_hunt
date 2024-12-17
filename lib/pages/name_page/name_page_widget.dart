@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:treasure_hunt/data.dart';
 import 'name_page_model.dart';
 export 'name_page_model.dart';
 
@@ -23,8 +24,8 @@ class _NamePageWidgetState extends State<NamePageWidget> {
     super.initState();
     _model = createModel(context, () => NamePageModel());
 
-    _model.emailAddressTextController ??= TextEditingController();
-    _model.emailAddressFocusNode ??= FocusNode();
+    _model.playerNameTextController ??= TextEditingController();
+    _model.playerNameFocusNode ??= FocusNode();
   }
 
   @override
@@ -83,8 +84,8 @@ class _NamePageWidgetState extends State<NamePageWidget> {
                 child: SizedBox(
                   width: double.infinity,
                   child: TextFormField(
-                    controller: _model.emailAddressTextController,
-                    focusNode: _model.emailAddressFocusNode,
+                    controller: _model.playerNameTextController,
+                    focusNode: _model.playerNameFocusNode,
                     autofillHints: const [AutofillHints.email],
                     obscureText: false,
                     decoration: InputDecoration(
@@ -141,7 +142,7 @@ class _NamePageWidgetState extends State<NamePageWidget> {
                     maxLines: null,
                     keyboardType: TextInputType.emailAddress,
                     cursorColor: FlutterFlowTheme.of(context).primary,
-                    validator: _model.emailAddressTextControllerValidator
+                    validator: _model.playerNameTextControllerValidator
                         .asValidator(context),
                   ),
                 ),
@@ -153,7 +154,8 @@ class _NamePageWidgetState extends State<NamePageWidget> {
                       const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () {
-                      context.pop(_model.emailAddressTextController.text);
+                      playerName = _model.playerNameTextController.text;
+                      context.pop();
                     },
                     text: '입력 완료',
                     options: FFButtonOptions(
