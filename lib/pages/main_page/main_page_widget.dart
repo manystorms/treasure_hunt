@@ -181,7 +181,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           children: [
-                            for(int i = 0; i < currentProgress; i++)
+                            for(int i = 0; i < currentProgress && i < riddleData.length-1; i++)
                               InkWell(
                                 onTap: () {
                                   context.push('/imagePage/$i');
@@ -264,6 +264,42 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         ).animateOnPageLoad(
                             animationsMap['listViewOnPageLoadAnimation']!),
                       ),
+                      if(currentProgress == riddleData.length)
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              16.0, 0.0, 16.0, 12.0),
+                          child: Container(
+                            decoration: const BoxDecoration(),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: double.infinity,
+                                  height: 330.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context).primaryBackground,
+                                    borderRadius: BorderRadius.circular(12.0),
+                                    border: Border.all(
+                                      color: FlutterFlowTheme.of(context).alternate,
+                                    ),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.asset(
+                                        'assets/CongratulationsImage.png',
+                                        width: double.infinity,
+                                        height: double.infinity,
+                                        fit: BoxFit.contain,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ].divide(const SizedBox(height: 12.0)),
+                            ),
+                          ),
+                        ),
                       Padding(
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             16.0, 0.0, 16.0, 12.0),
@@ -300,18 +336,25 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             final result = await context.push<String>('/codeScan');
-                            if(result.toString() == riddleData[currentProgress]['qrCode']) {
+                            if (result.toString() == riddleData[currentProgress]['qrCode']) {
                               currentProgress++;
-                              if(currentProgress == riddleData.length+1) {
+                              if (currentProgress == riddleData.length) {
+                                if (context.mounted) {
+                                  await showAlertWithoutChoice(context, '최종 보물에 도달하였습니다!\n상품을 받아가세요!');
+                                }
                                 setState(() {});
-                                if(context.mounted) await showAlertWithoutChoice(context, '최종 보물에 도달하였습니다!\n상품을 받아가세요!');
-                              }else{
+                              } else {
+                                if (context.mounted) {
+                                  await showAlertWithoutChoice(context, '축하합니다!\n$currentProgress번째 단서를 찾아냈습니다!');
+                                }
                                 setState(() {});
-                                if(context.mounted) await showAlertWithoutChoice(context, '축하합니다!\n$currentProgress번째 단서를 찾아냈습니다!');
                               }
-                            }else{
-                              if(context.mounted) await showAlertWithoutChoice(context, '틀렸습니다');
+                            } else {
+                              if (context.mounted) {
+                                await showAlertWithoutChoice(context, '틀렸습니다');
+                              }
                             }
+                            debugPrint(currentProgress.toString());
                             debugPrint(result.toString());
                           },
                           text: 'QR 코드 스캔',

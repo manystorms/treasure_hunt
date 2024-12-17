@@ -16,7 +16,8 @@ List<Map<String, dynamic>> riddleData = [
   },
   {
     'qrCode':'cccc',
-    'content':'sss'
+    'simpleContent':'보물 찾기 성공!',
+    'content':'보물 찾기 성공!'
   }
 ];
 
