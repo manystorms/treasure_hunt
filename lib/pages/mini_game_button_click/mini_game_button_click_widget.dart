@@ -25,6 +25,8 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
   void startTimer() {
     const duration = Duration(milliseconds: 10);
 
+    _model.timeLeft = settingTime;
+
     _model.timer = Timer.periodic(duration, (timer) {
       setState(() {
         if (_model.timeLeft <= 0) {
