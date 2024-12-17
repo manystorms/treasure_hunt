@@ -4,18 +4,18 @@ int penaltyScore = 0;
 
 List<Map<String, dynamic>> riddleData = [
   {
-    'qrCode':'',
+    'qrCode':'aaaa',
     'imagePath':'assets/test.jpeg',
     'simpleContent':'fff',
     'content':'asdfs'
   },
   {
-    'qrCode':'',
+    'qrCode':'bbbb',
     'simpleContent':'gdsk',
     'content':'dsg'
   },
   {
-    'qrCode':'',
+    'qrCode':'cccc',
     'content':'sss'
   }
 ];
