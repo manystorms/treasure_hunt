@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:treasure_hunt/show_alert.dart';
 import 'main_page_model.dart';
 export 'main_page_model.dart';
 
@@ -162,7 +163,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         padding: const EdgeInsetsDirectional.fromSTEB(
                             24.0, 4.0, 0.0, 12.0),
                         child: Text(
-                          '단서',
+                          (currentProgress > 0)? '단서':'단서-단서를 아직 발견하지 못했습니다',
                           textAlign: TextAlign.start,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -180,7 +181,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
                           children: [
-                            for(int i = 0; i < riddleData.length; i++)
+                            for(int i = 0; i < currentProgress; i++)
                               InkWell(
                                 onTap: () {
                                   context.push('/imagePage/$i');
@@ -269,7 +270,6 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             _model.userName = await context.push<String>('/namePage');
-                            print('bbb: ${_model.userName}');
                           },
                           text: '당신이 속한 팀명 혹은 이름을 입력하세요.',
                           options: FFButtonOptions(
@@ -300,7 +300,19 @@ class _MainPageWidgetState extends State<MainPageWidget>
                         child: FFButtonWidget(
                           onPressed: () async {
                             final result = await context.push<String>('/codeScan');
-                            print('aaa: $result');
+                            if(result.toString() == riddleData[currentProgress]['qrCode']) {
+                              currentProgress++;
+                              if(currentProgress == riddleData.length+1) {
+                                setState(() {});
+                                if(context.mounted) await showAlertWithoutChoice(context, '최종 보물에 도달하였습니다!\n상품을 받아가세요!');
+                              }else{
+                                setState(() {});
+                                if(context.mounted) await showAlertWithoutChoice(context, '축하합니다!\n$currentProgress번째 단서를 찾아냈습니다!');
+                              }
+                            }else{
+                              if(context.mounted) await showAlertWithoutChoice(context, '틀렸습니다');
+                            }
+                            debugPrint(result.toString());
                           },
                           text: 'QR 코드 스캔',
                           options: FFButtonOptions(
