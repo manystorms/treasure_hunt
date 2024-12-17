@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-Future<void> showAlertWithoutChoice(BuildContext context, String title) {
-  return showGeneralDialog(
+Future<void> showAlertWithoutChoice(BuildContext context, String title) async {
+  return showGeneralDialog<void>(
     context: context,
-    barrierDismissible: true, // 배경 클릭 시 닫힘
+    barrierDismissible: true,
     barrierLabel: "Dismiss",
-    transitionDuration: const Duration(milliseconds: 500), // 애니메이션 지속 시간
+    transitionDuration: const Duration(milliseconds: 500),
     pageBuilder: (context, animation, secondaryAnimation) {
       return Center(
         child: Material(
@@ -24,7 +24,9 @@ Future<void> showAlertWithoutChoice(BuildContext context, String title) {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    if (Navigator.canPop(context)) {
+                      Navigator.of(context).pop(); // 안전하게 pop 호출
+                    }
                   },
                   child: const Text('확인'),
                 ),
@@ -35,7 +37,6 @@ Future<void> showAlertWithoutChoice(BuildContext context, String title) {
       );
     },
     transitionBuilder: (context, animation, secondaryAnimation, child) {
-      // Fade + Scale 애니메이션 적용
       return ScaleTransition(
         scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
         child: FadeTransition(
@@ -46,6 +47,8 @@ Future<void> showAlertWithoutChoice(BuildContext context, String title) {
     },
   );
 }
+
+
 
 
 Future<bool?> showAlertWithTwoChoice(BuildContext context, String title, String firstChoice, String secondChoice) {
