@@ -31,23 +31,24 @@ class _CodeScanPageWidgetState extends State<CodeScanPageWidget> {
         title: const Text('QR 코드 스캔'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.flash_on),
+            icon: const Icon(Icons.flip_camera_android),
             onPressed: () {
-              controller.toggleTorch();
+              controller.switchCamera();
             },
           ),
         ],
       ),
       body: MobileScanner(
         controller: controller,
-        allowDuplicates: false,
-        onDetect: (barcode, args) {
-          if (barcode.rawValue == null) {
-            debugPrint('Failed to scan QR Code');
-          } else {
-            final String code = barcode.rawValue!;
-            debugPrint('QR Code Scanned: $code');
-            context.pop(code);
+        onDetect: (capture) {
+          final List<Barcode> barcodes = capture.barcodes;
+          for (final barcode in barcodes) {
+            if (barcode.rawValue != null) {
+              final String code = barcode.rawValue!;
+              debugPrint('QR Code Scanned: $code');
+              context.pop(code);
+              break;
+            }
           }
         },
       ),

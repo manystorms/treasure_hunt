@@ -60,7 +60,7 @@ dependencies:
   url_launcher_web: 2.3.3
   url_launcher_windows: 3.1.2
 
-  mobile_scanner: ^2.1.0
+  mobile_scanner: ^6.0.2
   cupertino_icons: ^1.0.6
   firebase_core: ^3.2.0
   cloud_firestore: ^5.1.0
