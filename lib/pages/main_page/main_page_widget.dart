@@ -344,6 +344,10 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                 }
                                 setState(() {});
                               } else {
+                                if(riddleData[currentProgress-1]['miniGame'] != null && context.mounted) {
+                                  await context.push(riddleData[currentProgress-1]['miniGame']);
+                                }
+
                                 if (context.mounted) {
                                   await showAlertWithoutChoice(context, '축하합니다!\n$currentProgress번째 단서를 찾아냈습니다!');
                                 }

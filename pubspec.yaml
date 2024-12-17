@@ -59,6 +59,7 @@ dependencies:
   url_launcher_platform_interface: 2.3.2
   url_launcher_web: 2.3.3
   url_launcher_windows: 3.1.2
+  percent_indicator: ^4.2.4
 
   mobile_scanner: ^6.0.2
   cupertino_icons: ^1.0.6

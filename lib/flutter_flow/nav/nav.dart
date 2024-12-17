@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:treasure_hunt/pages/code_scan_widget.dart';
+import 'package:treasure_hunt/pages/mini_game_button_click/mini_game_button_click_model.dart';
+import 'package:treasure_hunt/pages/mini_game_button_click/mini_game_button_click_widget.dart';
 
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -41,6 +43,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'main_page',
           path: '/mainPage',
           builder: (context, _) => const MainPageWidget(),
+        ),
+        FFRoute(
+          name: 'mini_game_button_click',
+          path: '/miniGameButtonClick',
+          builder: (context, params) => const MiniGameButtonClickWidget(),
         ),
         FFRoute(
           name: 'image_page',

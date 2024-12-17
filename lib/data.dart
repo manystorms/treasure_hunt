@@ -7,7 +7,8 @@ List<Map<String, dynamic>> riddleData = [
     'qrCode':'aaaa',
     'imagePath':'assets/test.jpeg',
     'simpleContent':'fff',
-    'content':'asdfs'
+    'content':'asdfs',
+    'miniGame':'/miniGameButtonClick'
   },
   {
     'qrCode':'bbbb',
