@@ -18,13 +18,13 @@ List<Map<String, dynamic>> riddleData = [
     'imagePath':'assets/test.jpeg',
     'simpleContent':'fff',
     'content':'asdfs',
-    'miniGame':'/miniGameButtonClick'
+    'miniGame':'/miniGameMatchColor'
   },
   {
     'qrCode':'bbbb',
     'simpleContent':'gdsk',
     'content':'dsg',
-    'miniGame':'/miniGameMatchColor'
+    'miniGame':'/miniGameButtonClick'
   },
   {
     'qrCode':'cccc',
