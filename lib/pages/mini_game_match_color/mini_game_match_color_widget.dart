@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:treasure_hunt/show_alert.dart';
+import 'package:treasure_hunt/data.dart';
 
 import 'mini_game_match_color_model.dart';
 export 'mini_game_match_color_model.dart';
@@ -41,7 +42,12 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
   }
 
   void gameEnd() async{
+    _model.timer.cancel();
     await showAlertWithoutChoice(context, '게임이 끝났습니다');
+    int changingScore = _model.ansCnt-2;
+    changeScore(changingScore);
+    await showAlertWithoutChoice(context, '점수가 ${changingScore.abs()}만큼 ${(changingScore > 0)? '증가':'감소'}했습니다');
+
     context.pop();
   }
 
@@ -94,7 +100,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 4, 0, 2),
                     child: Text(
                       '아래 4가지 색 중에서 주어진 보기와 같은 색깔을 고르세요!!',
                       style: FlutterFlowTheme.of(context).labelLarge.override(
@@ -103,6 +109,15 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                       ),
                     ),
                   ),
+                  if(_model.previousProblemAns != null)
+                    Text(
+                      (_model.previousProblemAns??true)? '맞았습니다':'틀렸습니다',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        fontFamily: 'Inter',
+                        color: (_model.previousProblemAns??true)? const Color(0xFF4B39EF):const Color(0xFFFF5963),
+                        letterSpacing: 0.0,
+                      ),
+                    ),
                   Align(
                     alignment: const AlignmentDirectional(0, 0),
                     child: Padding(
@@ -134,7 +149,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                       width: double.infinity,
                       height: 70,
                       decoration: BoxDecoration(
-                        color: colorProblem[0][ans[0]],
+                        color: colorProblem[_model.problemCnt][ans[_model.problemCnt]],
                         borderRadius: const BorderRadius.only(
                           bottomLeft: Radius.circular(20),
                           bottomRight: Radius.circular(20),
@@ -153,7 +168,19 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 6, 6),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                              if(ans[_model.problemCnt] == 0) {
+                                _model.previousProblemAns = true;
+                                _model.ansCnt++;
+                              }else{
+                                _model.previousProblemAns = false;
+                              }
+                              _model.problemCnt++;
+                              if(_model.problemCnt == ans.length) {
+                                _model.problemCnt = 0;
+                                gameEnd();
+                              }else{
+                                setState(() {});
+                              }
                             },
                             text: '',
                             options: FFButtonOptions(
@@ -162,7 +189,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                               padding: const EdgeInsets.all(0),
                               iconPadding:
                               const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: const Color(0xFF5B50B8),
+                              color: colorProblem[_model.problemCnt][0],
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -186,7 +213,19 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(6, 24, 0, 6),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                              if(ans[_model.problemCnt] == 1) {
+                                _model.previousProblemAns = true;
+                                _model.ansCnt++;
+                              }else{
+                                _model.previousProblemAns = false;
+                              }
+                              _model.problemCnt++;
+                              if(_model.problemCnt == ans.length) {
+                                _model.problemCnt = 0;
+                                gameEnd();
+                              }else{
+                                setState(() {});
+                              }
                             },
                             text: '',
                             options: FFButtonOptions(
@@ -195,7 +234,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                               padding: const EdgeInsets.all(0),
                               iconPadding:
                               const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: const Color(0xFF2F258D),
+                              color: colorProblem[_model.problemCnt][1],
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -224,7 +263,19 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(0, 6, 6, 6),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                              if(ans[_model.problemCnt] == 2) {
+                                _model.previousProblemAns = true;
+                                _model.ansCnt++;
+                              }else{
+                                _model.previousProblemAns = false;
+                              }
+                              _model.problemCnt++;
+                              if(_model.problemCnt == ans.length) {
+                                _model.problemCnt = 0;
+                                gameEnd();
+                              }else{
+                                setState(() {});
+                              }
                             },
                             text: '',
                             options: FFButtonOptions(
@@ -233,7 +284,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                               padding: const EdgeInsets.all(0),
                               iconPadding:
                               const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: const Color(0xFF5B50B8),
+                              color: colorProblem[_model.problemCnt][2],
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
@@ -257,7 +308,19 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(6, 6, 0, 6),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                              if(ans[_model.problemCnt] == 3) {
+                                _model.previousProblemAns = true;
+                                _model.ansCnt++;
+                              }else{
+                                _model.previousProblemAns = false;
+                              }
+                              _model.problemCnt++;
+                              if(_model.problemCnt == ans.length) {
+                                _model.problemCnt = 0;
+                                gameEnd();
+                              }else{
+                                setState(() {});
+                              }
                             },
                             text: '',
                             options: FFButtonOptions(
@@ -266,7 +329,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                               padding: const EdgeInsets.all(0),
                               iconPadding:
                               const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                              color: const Color(0xFF2F258D),
+                              color: colorProblem[_model.problemCnt][3],
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
