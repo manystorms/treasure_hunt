@@ -125,7 +125,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                 verticalDirection: VerticalDirection.down,
                                 clipBehavior: Clip.none,
                                 children: [
-                                  if(riddleData[widget.indexNum]['imageUrl'] != null)
+                                  if(riddleData[widget.indexNum]['imagePath'] != null)
                                     Container(
                                       constraints: const BoxConstraints(
                                         maxWidth: 570.0,
@@ -153,8 +153,8 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(8.0),
-                                                child: Image.network(
-                                                  riddleData[widget.indexNum]['imageUrl']??'',
+                                                child: Image.asset(
+                                                  riddleData[widget.indexNum]['imagePath']??'',
                                                   width: 300.0,
                                                   height: 200.0,
                                                   fit: BoxFit.cover,
