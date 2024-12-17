@@ -107,7 +107,7 @@ class _MiniGameButtonClickWidgetState extends State<MiniGameButtonClickWidget> {
                     child: Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(24, 24, 24, 0),
                       child: CircularPercentIndicator(
-                        percent: _model.timeLeft/settingTime,
+                        percent: (_model.timeLeft>= 0)? _model.timeLeft/settingTime:0,
                         radius: 150,
                         lineWidth: 25,
                         animation: true,

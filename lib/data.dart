@@ -1,6 +1,6 @@
 
 int currentProgress = 0;
-int penaltyScore = 0;
+int score = 0;
 
 List<Map<String, dynamic>> riddleData = [
   {
