@@ -17,7 +17,6 @@ const List<Map<String, dynamic>> riddleData = [
     'qrCode':'start_point',
     'simpleContent':'아름다운 그림을 듣는다',
     'content':'아름다운 그림을 듣는다',
-    'miniGame':'/miniGameReactionRate'
   },
   {
     'qrCode':'music_room',
@@ -41,7 +40,7 @@ const List<Map<String, dynamic>> riddleData = [
     'qrCode':'broadcasting_room',
     'simpleContent':'1부터 100까지의 합을 구하다',
     'content':'1부터 100까지의 합을 구하다',
-    'miniGame':'/miniGameButtonClick'
+    'miniGame':'/miniGameReactionRate'
   },
   {
     'qrCode':'gauss_room',
