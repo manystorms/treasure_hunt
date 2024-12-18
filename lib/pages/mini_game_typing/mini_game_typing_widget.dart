@@ -28,6 +28,8 @@ class _MiniGameTypingWidgetState extends State<MiniGameTypingWidget> {
 
     _model.descriptionTextController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
+
+    startTimer();
   }
 
   void startTimer() {
@@ -51,7 +53,7 @@ class _MiniGameTypingWidgetState extends State<MiniGameTypingWidget> {
   void gameEnd() async{
     _model.timer.cancel();
     await showAlertWithoutChoice(context, '게임이 끝났습니다');
-    int changingScore = _model.ansText-2;
+    int changingScore = _model.ansTextNum-2;
     changeScore(changingScore);
     await showAlertWithoutChoice(context, '점수가 ${changingScore.abs()}만큼 ${(changingScore > 0)? '증가':'감소'}했습니다');
 
@@ -153,7 +155,7 @@ class _MiniGameTypingWidgetState extends State<MiniGameTypingWidget> {
                         textCapitalization: TextCapitalization.words,
                         obscureText: false,
                         decoration: InputDecoration(
-                          labelText: textAsk[_model.ansText],
+                          labelText: textAsk[_model.problemTextNum],
                           labelStyle:
                           FlutterFlowTheme.of(context).labelLarge.override(
                             fontFamily: 'Inter',
@@ -222,20 +224,23 @@ class _MiniGameTypingWidgetState extends State<MiniGameTypingWidget> {
                     padding: const EdgeInsetsDirectional.fromSTEB(0, 24, 0, 12),
                     child: FFButtonWidget(
                       onPressed: () {
-                        if(textAsk[_model.problemText] == "") { //수정 필요
+                        if(_model.descriptionTextController.text.contains(textAsk[_model.ansTextNum])) {
                           _model.previousProblemAns = true;
-                          _model.ansText++;
+                          _model.ansTextNum++;
                         }
                         else{
                           _model.previousProblemAns = false;
                         }
-                        _model.problemText++;
-                        if(_model.problemText == textAsk.length) {
-                          _model.problemText = 0;
+                        _model.descriptionTextController.text = '';
+                        _model.problemTextNum++;
+                        if(_model.problemTextNum == textAsk.length) {
+                          _model.problemTextNum = 0;
                           gameEnd();
-                        }else{
+                        }
+                        else{
                           setState(() {});
                         }
+
                       },
                       text: '제출하기',
                       options: FFButtonOptions(

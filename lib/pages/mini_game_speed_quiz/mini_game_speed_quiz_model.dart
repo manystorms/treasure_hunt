@@ -3,7 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'mini_game_speed_quiz_widget.dart' show MiniGameSpeedQuizWidget;
 import 'package:flutter/material.dart';
 
-const double settingTime = 30;
+const double settingTime = 60;
 
 List<String> problem = [
   '컴퓨터가 이해할 수 있는 0과 1로 이루어진 언어를 무엇이라고 하나요?',
@@ -21,10 +21,26 @@ List<String> problem = [
 List<List<String>> problemChoice = [
   ['aa', 'bb', 'cc', 'dd'],
   ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
+  ['qq', 'ww', 'ee', 'rr'],
 ];
 
 List<List<int>> ans = [
   [0, 1],
+  [2],
+  [2],
+  [2],
+  [2],
+  [2],
+  [2],
+  [2],
+  [2],
   [2],
 ];
 

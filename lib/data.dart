@@ -17,6 +17,7 @@ const List<Map<String, dynamic>> riddleData = [
     'qrCode':'start_point',
     'simpleContent':'아름다운 그림을 듣는다',
     'content':'아름다운 그림을 듣는다',
+    'miniGame':'/miniGameTyping'
   },
   {
     'qrCode':'music_room',

@@ -12,7 +12,7 @@ class CodeScanPageWidget extends StatefulWidget {
 class _CodeScanPageWidgetState extends State<CodeScanPageWidget> {
   late MobileScannerController controller;
 
-  bool detectQrCode = false;
+  bool returnQrCode = false;
 
   @override
   void initState() {
@@ -43,18 +43,17 @@ class _CodeScanPageWidgetState extends State<CodeScanPageWidget> {
       body: MobileScanner(
         controller: controller,
         onDetect: (capture) {
-          if(detectQrCode == false) {
-            detectQrCode = true;
-            final List<Barcode> barcodes = capture.barcodes;
-            for (final barcode in barcodes) {
-              if (barcode.rawValue != null) {
-                final String code = barcode.rawValue!;
-                debugPrint('QR Code Scanned: $code');
+          final List<Barcode> barcodes = capture.barcodes;
+          for (final barcode in barcodes) {
+            if (barcode.rawValue != null) {
+              final String code = barcode.rawValue!;
+              debugPrint('QR Code Scanned: $code');
+              if(returnQrCode == false) {
+                returnQrCode = true;
                 context.pop(code);
-                break;
               }
+              break;
             }
-            detectQrCode = false;
           }
         },
       ),

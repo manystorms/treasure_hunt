@@ -3,6 +3,9 @@ import 'main_page_widget.dart' show MainPageWidget;
 import 'package:flutter/material.dart';
 
 class MainPageModel extends FlutterFlowModel<MainPageWidget> {
+
+  bool codeScanButton = false;
+
   @override
   void initState(BuildContext context) {}
 

@@ -342,7 +342,8 @@ class _MainPageWidgetState extends State<MainPageWidget>
                           onPressed: () async {
                             if(playerName == null) {
                               await showAlertWithoutChoice(context, '팀명 혹은 이름을 입력하세요');
-                            }else{
+                            }else if(_model.codeScanButton == false) {
+                              _model.codeScanButton = true;
                               final result = await context.push<String>('/codeScan');
                               if (result.toString() == riddleData[currentProgress]['qrCode']) {
                                 currentProgress++;
@@ -368,6 +369,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                               }
                               debugPrint(currentProgress.toString());
                               debugPrint(result.toString());
+                              _model.codeScanButton = false;
                             }
                           },
                           text: 'QR 코드 스캔',
