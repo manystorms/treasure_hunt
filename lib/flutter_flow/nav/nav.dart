@@ -6,6 +6,7 @@ import 'package:treasure_hunt/pages/code_scan_widget.dart';
 import 'package:treasure_hunt/pages/mini_game_button_click/mini_game_button_click_widget.dart';
 import 'package:treasure_hunt/pages/mini_game_match_color/mini_game_match_color_widget.dart';
 import 'package:treasure_hunt/pages/mini_game_speed_quiz/mini_game_speed_quiz_widget.dart';
+import 'package:treasure_hunt/pages/mini_game_typing/mini_game_typing_widget.dart';
 
 import '/index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -59,6 +60,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'mini_game_speed_quiz',
           path: '/miniGameSpeedQuiz',
           builder: (context, params) => const MiniGameSpeedQuizWidget(),
+        ),
+        FFRoute(
+          name: 'mini_game_typing',
+          path: '/miniGameTyping',
+          builder: (context, params) => const MiniGameTypingWidget(),
         ),
         FFRoute(
           name: 'image_page',
