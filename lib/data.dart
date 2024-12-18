@@ -44,8 +44,8 @@ const List<Map<String, dynamic>> riddleData = [
   },
   {
     'qrCode':'gauss_room',
-    'simpleContent':'Kp htqpv qh vjg xgpfkpi ocejkpg qp vjg vjktf hnqqt',
-    'content':'Kp htqpv qh vjg xgpfkpi ocejkpg qp vjg vjktf hnqqt',
+    'simpleContent':'Eqog vq vjg uekgpeg echg',
+    'content':'Eqog vq vjg uekgpeg echg',
     'miniGame':'/miniGameMatchColor'
   },
   {
