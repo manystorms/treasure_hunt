@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'image_page_model.dart';
 export 'image_page_model.dart';
@@ -176,7 +175,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                           letterSpacing: 0.0,
                                         ),
                                     ),
-                                  const SizedBox(height: 50),
+                                  /*const SizedBox(height: 50),
                                   TextFormField(
                                     controller:
                                     _model.productNameTextController,
@@ -323,7 +322,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                                           ),
                                       ].divide(const SizedBox(height: 12.0)),
                                     ),
-                                  ),
+                                  ),*/
                                 ],
                               ),
                             ),
@@ -333,7 +332,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                     ),
                   ),
                 ),
-                if (responsiveVisibility(
+                /*if (responsiveVisibility(
                   context: context,
                   tabletLandscape: false,
                   desktop: false,
@@ -374,7 +373,7 @@ class _ImagePageWidgetState extends State<ImagePageWidget> {
                         ),
                       ),
                     ),
-                  ),
+                  ),*/
               ],
             ),
           ),
