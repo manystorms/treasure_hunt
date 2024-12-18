@@ -46,7 +46,7 @@ class _MiniGameReactionRateWidgetState
     int changingScore = 0;
     if(average >= 0.5) {
       changingScore = -3;
-    }else if(average >= 0.25){
+    }else if(average >= 0.35){
       changingScore = 1;
     }else{
       changingScore = 3;

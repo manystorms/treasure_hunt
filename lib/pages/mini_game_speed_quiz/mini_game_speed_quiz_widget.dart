@@ -43,7 +43,7 @@ class _MiniGameSpeedQuizWidgetState extends State<MiniGameSpeedQuizWidget> {
 
   void gameEnd() async{
     await showAlertWithoutChoice(context, '게임이 끝났습니다');
-    int changingScore = _model.ansCnt-2;
+    int changingScore = _model.ansCnt-5;
     changeScore(changingScore);
     await showAlertWithoutChoice(context, '점수가 ${changingScore.abs()}만큼 ${(changingScore > 0)? '증가':'감소'}했습니다');
 

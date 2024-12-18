@@ -17,7 +17,6 @@ const List<Map<String, dynamic>> riddleData = [
     'qrCode':'start_point',
     'simpleContent':'아름다운 그림을 듣는다',
     'content':'아름다운 그림을 듣는다',
-    'miniGame':'/miniGameTyping'
   },
   {
     'qrCode':'music_room',
@@ -29,7 +28,7 @@ const List<Map<String, dynamic>> riddleData = [
     'qrCode':'observatory',
     'simpleContent':'계산가가 많다',
     'content':'계산가가 많다',
-    'miniGame':'/miniGameMatchColor'
+    'miniGame':'/miniGameTyping'
   },
   {
     'qrCode':'computer_room',
@@ -47,7 +46,7 @@ const List<Map<String, dynamic>> riddleData = [
     'qrCode':'gauss_room',
     'simpleContent':'Kp htqpv qh vjg xgpfkpi ocejkpg qp vjg vjktf hnqqt',
     'content':'Kp htqpv qh vjg xgpfkpi ocejkpg qp vjg vjktf hnqqt',
-    'miniGame':'/miniGameButtonClick'
+    'miniGame':'/miniGameMatchColor'
   },
   {
     'qrCode':'end_point',

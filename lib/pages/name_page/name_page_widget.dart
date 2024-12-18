@@ -73,12 +73,6 @@ class _NamePageWidgetState extends State<NamePageWidget> {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // This row exists for when the "app bar" is hidden on desktop, having a way back for the user can work well.
-              if (responsiveVisibility(
-                context: context,
-                phone: false,
-                tablet: false,
-              ))
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: SizedBox(

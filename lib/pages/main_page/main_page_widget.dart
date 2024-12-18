@@ -349,7 +349,7 @@ class _MainPageWidgetState extends State<MainPageWidget>
                                 currentProgress++;
                                 if (currentProgress == riddleData.length) {
                                   if (context.mounted) {
-                                    await showAlertWithoutChoice(context, '최종 보물에 도달하였습니다!\n상품을 받아가세요!');
+                                    await showAlertWithoutChoice(context, '최종 보물에 도달하였습니다!\n상품을 받아가세요!\n합격을 진심으로 축하합니다!!!');
                                   }
                                   setState(() {});
                                 } else {
