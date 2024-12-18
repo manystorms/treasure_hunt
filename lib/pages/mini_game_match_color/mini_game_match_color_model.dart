@@ -3,7 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'mini_game_match_color_widget.dart' show MiniGameMatchColorWidget;
 import 'package:flutter/material.dart';
 
-const double settingTime = 5;
+const double settingTime = 30;
 
 const List<List<Color>> colorProblem = [
   [Color(0xFF584CDA), Color(0xFF2E2877), Color(0xFF524B8E), Color(0xFF7E72E3)],

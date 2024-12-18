@@ -12,13 +12,13 @@ void changeScore(int num) {
   score += num;
 }
 
-List<Map<String, dynamic>> riddleData = [
+const List<Map<String, dynamic>> riddleData = [
   {
     'qrCode':'aaaa',
     'imagePath':'assets/test.jpeg',
     'simpleContent':'fff',
     'content':'asdfs',
-    'miniGame':'/miniGameMatchColor'
+    'miniGame':'/miniGameSpeedQuiz'
   },
   {
     'qrCode':'bbbb',
