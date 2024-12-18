@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:go_router/go_router.dart';
 
 Future<void> showAlertWithoutChoice(BuildContext context, String title) async {
+  bool pagePop = false;
+
   return showGeneralDialog<void>(
     context: context,
     barrierDismissible: false,
@@ -24,8 +26,11 @@ Future<void> showAlertWithoutChoice(BuildContext context, String title) async {
               Center(
                 child: TextButton(
                   onPressed: () {
-                    if (Navigator.canPop(context)) {
-                      Navigator.of(context).pop(); // 안전하게 pop 호출
+                    if (!pagePop) {
+                      if (Navigator.canPop(context)) {
+                        pagePop = true;
+                        Navigator.of(context).pop();
+                      }
                     }
                   },
                   child: const Text('확인'),

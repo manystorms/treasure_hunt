@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 const double settingTime = 30;
 
 const List<List<Color>> colorProblem = [
-  [Color(0xFF584CDA), Color(0xFF2E2877), Color(0xFF524B8E), Color(0xFF7E72E3)],
-  [Color(0xFFCF1A15), Color(0xFF9E120F), Color(0xFF9E211F), Color(0xFFCC2C29)],
-  [Color(0xFF35591F), Color(0xFF3E6824), Color(0xFF38631E), Color(0xFF2B4C18)],
-  [Color(0x79CDCB64), Color(0x79CAC872), Color(0x79A1A05C), Color(0x799F9E52)],
-  [Color(0x79A41DB6), Color(0x79A021B1), Color(0x79AA24BC), Color(0x798D209C)]
+  [Color(0xFF5B4FE0), Color(0xFF2F2968), Color(0xFF544B91), Color(0xFF7C72D9)],
+  [Color(0xFFCC1713), Color(0xFF9B0F0D), Color(0xFF9D1D1B), Color(0xFFCA2A27)],
+  [Color(0xFF345C1D), Color(0xFF3B6423), Color(0xFF375F1C), Color(0xFF2C4A17)],
+  [Color(0x79C9C763), Color(0x79C8C570), Color(0x79A09F5B), Color(0x799D9B51)],
+  [Color(0x79A11FB4), Color(0x79A021B0), Color(0x79AB24BE), Color(0x798E209D)]
 ];
 
 List<int> ans = [2, 3, 1, 2, 0];

@@ -198,7 +198,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 fontSize: 25,
                                 letterSpacing: 0.0,
                               ),
-                              elevation: 4,
+                              elevation: 0,
                               borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
@@ -243,7 +243,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 fontSize: 25,
                                 letterSpacing: 0.0,
                               ),
-                              elevation: 4,
+                              elevation: 0,
                               borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
@@ -293,7 +293,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 fontSize: 25,
                                 letterSpacing: 0.0,
                               ),
-                              elevation: 4,
+                              elevation: 0,
                               borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,
@@ -338,7 +338,7 @@ class _MiniGameMatchColorWidgetState extends State<MiniGameMatchColorWidget> {
                                 fontSize: 25,
                                 letterSpacing: 0.0,
                               ),
-                              elevation: 4,
+                              elevation: 0,
                               borderSide: const BorderSide(
                                 color: Colors.transparent,
                                 width: 1,

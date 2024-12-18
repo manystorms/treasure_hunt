@@ -18,7 +18,7 @@ const List<Map<String, dynamic>> riddleData = [
     'imagePath':'assets/test.jpeg',
     'simpleContent':'fff',
     'content':'asdfs',
-    'miniGame':'/miniGameSpeedQuiz'
+    'miniGame':'/miniGameMatchColor'
   },
   {
     'qrCode':'bbbb',
